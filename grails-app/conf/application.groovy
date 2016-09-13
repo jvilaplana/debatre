@@ -2,6 +2,9 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.jordiv.debatre.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.jordiv.debatre.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.jordiv.debatre.Role'
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -12,7 +15,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/js/**',       access: ['permitAll']],
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
+    [pattern: '/**/fonts/**',    access: ['permitAll']],
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
+    [pattern: '/login/**',       access: ['permitAll']],
+    [pattern: '/logout/**',      access: ['permitAll']],
 	[pattern: '/home/register',  access: ['permitAll']],
     [pattern: '/home/saveUser',  access: ['permitAll']]
 ]
@@ -25,5 +31,3 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
-
-grails.plugin.springsecurity.logout.postOnly = false

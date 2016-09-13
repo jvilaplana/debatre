@@ -147,7 +147,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <p class="text-left"><strong><sec:loggedInUserInfo field="fullName" /></strong></p>
+                                            <p class="text-left"><strong><sec:loggedInUserInfo field="givenName" /></strong></p>
                                             <p class="text-left small"><sec:username /></p>
                                             <p class="text-left">
                                                 <a href="#" class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>

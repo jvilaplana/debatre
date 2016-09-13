@@ -30,7 +30,7 @@ class MyUserDetailsService implements GrailsUserDetailsService {
         new MyUserDetails(user.username, user.password, user.enabled,
                 !user.accountExpired, !user.passwordExpired,
                 !user.accountLocked, roles ?: NO_ROLES, user.id,
-                user.fullName)
+                user.givenName, user.familyName)
     }
 
     UserDetails loadUserByUsername(String username) {

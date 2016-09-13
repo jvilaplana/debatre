@@ -1,12 +1,12 @@
 package com.jordiv.debatre
 
 import grails.plugin.springsecurity.annotation.Secured
-import grails.transaction.Transactional
+import com.jordiv.debatre.Debate
 
 class HomeController {
+    def springSecurityService
 
-    @Transactional
-    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN', 'ROLE_MOD', 'ROLE_USER'])
     def index() {
         respond Debate.list(max: 5, sort: 'dateCreated', order: 'desc'), model:[debateCount: Debate.count()]
     }

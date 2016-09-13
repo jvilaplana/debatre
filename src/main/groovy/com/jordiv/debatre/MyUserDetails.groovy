@@ -6,16 +6,18 @@ import org.bson.types.ObjectId
 
 class MyUserDetails extends GrailsUser {
 
-    final String fullName
+    final String givenName
+    final String familyName
 
     MyUserDetails(String username, String password, boolean enabled,
                   boolean accountNonExpired, boolean credentialsNonExpired,
                   boolean accountNonLocked,
                   Collection<GrantedAuthority> authorities,
-                  ObjectId id, String fullName) {
+                  ObjectId id, String givenName, String familyName) {
         super(username, password, enabled, accountNonExpired,
                 credentialsNonExpired, accountNonLocked, authorities, id)
 
-        this.fullName = fullName
+        this.givenName = givenName
+        this.familyName = familyName
     }
 }
