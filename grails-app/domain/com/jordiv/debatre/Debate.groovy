@@ -3,6 +3,7 @@ package com.jordiv.debatre
 import org.bson.types.ObjectId
 
 class Debate {
+    static auditable = true
     ObjectId id
     Date dateCreated
     Date lastUpdated

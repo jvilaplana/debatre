@@ -31,3 +31,8 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+
+// Added by the Audit-Logging plugin:
+grails.plugin.auditLog.auditDomainClassName = 'com.jordiv.debatre.AuditTrail'
+

@@ -43,6 +43,10 @@ class DebateController {
             return
         }
 
+        println "------"
+        println debate.author
+        println "------"
+
         debate.save flush:true
 
         request.withFormat {

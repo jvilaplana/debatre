@@ -32,7 +32,9 @@
                         <label for='author'>Author
                             <span class='required-indicator'>*</span>
                         </label><select name="author.id" required="" id="author" >
-                        <option value="1" >User(username:jvilaplana)</option>
+                        <option value="${sec.loggedInUserInfo(field: "id")}" >
+                            <sec:loggedInUserInfo field="givenName" /> <sec:loggedInUserInfo field="familyName" />
+                        </option>
                     </select>
                     </div><div class='fieldcontain required'>
                     <label for='title'>Title
