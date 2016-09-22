@@ -19,7 +19,14 @@ class DebateController {
 
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def show(Debate debate) {
-        def comments = debate.comments
+        def comments = null
+        println debate
+
+        if(debate) {
+            comments = Comment.findAllByDebate(debate)
+            println "debate!!!"
+            println comments
+        }
         respond debate, model: [comments: comments]
     }
 

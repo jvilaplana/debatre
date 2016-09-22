@@ -23,7 +23,7 @@ class CommentController {
         respond new Comment(params)
     }
 
-    @Secured('ROLE_ADMIN')
+    @Secured(['ROLE_ADMIN', 'ROLE_MOD', 'ROLE_USER'])
     @Transactional
     def save(Comment comment) {
         println "Saving comment!"

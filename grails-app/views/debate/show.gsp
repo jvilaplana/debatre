@@ -42,7 +42,7 @@
 
             <p>Speaking as Jordi Vilaplana</p>
             <g:form controller="comment" action="save">
-                <g:hiddenField name="author.id" value="1" />
+                <g:hiddenField name="author.id" value="${sec.loggedInUserInfo(field: "id")}" />
                 <g:hiddenField name="debate.id" value="${debate.id}" />
                 <textarea class="form-control" rows="5" id="comment" name="content"
                           oninput="this.editor.update()"></textarea>
