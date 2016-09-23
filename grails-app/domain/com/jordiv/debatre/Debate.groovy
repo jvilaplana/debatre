@@ -17,5 +17,6 @@ class Debate {
     }
 
     static constraints = {
+        title maxSize: 140
     }
 }

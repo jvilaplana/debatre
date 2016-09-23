@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div id="create-debate" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h2><g:message code="default.create.label" args="[entityName]" /></h2>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -25,28 +25,19 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+            <p>Posting as ${sec.loggedInUserInfo(field: "givenName")} ${sec.loggedInUserInfo(field: "familyName")}</p>
             <g:form action="save">
-                <fieldset class="form">
-
-                    <div class='fieldcontain required'>
-                        <label for='author'>Author
-                            <span class='required-indicator'>*</span>
-                        </label><select name="author.id" required="" id="author" >
-                        <option value="${sec.loggedInUserInfo(field: "id")}" >
-                            <sec:loggedInUserInfo field="givenName" /> <sec:loggedInUserInfo field="familyName" />
-                        </option>
-                    </select>
-                    </div><div class='fieldcontain required'>
-                    <label for='title'>Title
-                        <span class='required-indicator'>*</span>
-                    </label><input type="text" name="title" value="" required="" id="title" />
-                </div><div class='fieldcontain required'>
-                    <label for='content'>Content
-                        <span class='required-indicator'>*</span>
-                    </label><textarea name="content" value="" required="" id="content"></textarea>
+                <g:hiddenField name="author.id" value="${sec.loggedInUserInfo(field: "id")}" />
+                <div class="form-group required">
+                    <label for='title'>Title <span class='required-indicator'>*</span></label>
+                    <input type="text" name="title" value="" required="" id="title" maxlength="140" class="form-control" aria-describedby="titleHelp" placeholder="Enter title" />
+                    <small id="titleHelp" class="form-text text-muted">Enter a short and descriptive title for your debate.</small>
                 </div>
-                    <%--<f:all bean="debate"/>--%>
-                </fieldset>
+                <div class="form-group required">
+                    <label for='content'>Content <span class='required-indicator'>*</span></label>
+                    <textarea name="content" value="" required="" id="content" class="form-control"  aria-describedby="titleHelp" placeholder="So, what do you want to argue about?"></textarea>
+                    <small id="contentHelp" class="form-text text-muted">Be respectful.</small>
+                </div>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>

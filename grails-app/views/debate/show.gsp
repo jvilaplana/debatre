@@ -26,19 +26,25 @@
             </ul>
         </div>
         <div id="show-debate" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
+                <div class="message" role="status">${flash.message}</div>
             </g:if>
             <h2>${debate.title}</h2>
             <div class="debate-content">
                 <p>${debate.content}</p>
             </div>
-            <g:each in="${comments}" var="comment">
-                <div class="comment-content">
-                    ${comment.content}
-                </div>
-            </g:each>
+            <div class="comments-area">
+                <g:each in="${comments}" var="comment">
+                    <div class="comment-area">
+                        <div class="comment-content">
+                            ${comment.content}
+                        </div>
+                        <div class="comment-author">
+                            <p>With love, ${comment.author.givenName} ${comment.author.familyName} - <g:formatDate date="${new Date( ((long)comment.id.getTimestamp()) * 1000 )}" format="dd/MM/yyyy HH:mm" /></p>
+                        </div>
+                    </div>
+                </g:each>
+            </div>
 
             <p>Speaking as Jordi Vilaplana</p>
             <g:form controller="comment" action="save">
